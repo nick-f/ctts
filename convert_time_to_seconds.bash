@@ -86,3 +86,5 @@ if [ $# -eq 0 ]; then
 
   exit 1
 fi
+
+convert_time_to_seconds "$1"
