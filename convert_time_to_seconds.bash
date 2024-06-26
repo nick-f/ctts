@@ -19,7 +19,7 @@ $0 '3 minutes'
   "
 }
 
-determine_time_unit() {
+_determine_time_unit() {
   local input_string="$1"
 
   if [[ $input_string == *"second"* ]]; then
@@ -48,7 +48,7 @@ convert_time_to_seconds() {
 
   local number=${BASH_REMATCH[1]}
 
-  unit=$(determine_time_unit "$input_string")
+  unit=$(_determine_time_unit "$input_string")
 
   case $unit in
   "seconds")
