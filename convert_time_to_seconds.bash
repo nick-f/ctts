@@ -1,5 +1,24 @@
 #!/usr/bin/env bash
 
+help() {
+  echo "CTTS - Convert time to seconds
+
+Usage: $0 TIME_STRING
+
+TIME_STRING must be a string consisting of a number and unit of time.
+
+Acceptable units of time:
+  seconds
+  minutes
+  hours
+  days
+
+Examples:
+$0 '1 hour'
+$0 '3 minutes'
+  "
+}
+
 determine_time_unit() {
   local input_string="$1"
 
@@ -61,3 +80,9 @@ convert_time_to_seconds() {
   fi
   echo "$total_seconds"
 }
+
+if [ $# -eq 0 ]; then
+  help
+
+  exit 1
+fi
